@@ -94,6 +94,7 @@ html,body {
     line-height: 29px;
     transition: background 500ms;
     span {
+        pointer-events: none;
         color: transparent;
     }
     &.active {
@@ -155,6 +156,8 @@ html,body {
     right: 170px;
     max-width: 25%;
     position: absolute;
+    transition: all 500ms;
+    
  }
 .start__title {
     font-size: 128px;
@@ -220,7 +223,10 @@ html,body {
     cursor: pointer;
     &:hover {
         span {
-            color: #FAA1A1;;
+            color: #FAA1A1;
+        }
+        path {
+            stroke: #FAA1A1;
         }
     }
 }
@@ -302,6 +308,14 @@ html,body {
         border: 12px solid #000000;
         border-radius: 50%;
     }
+    &:hover {
+        .categories__card__img {
+            transform: scale(1.05);
+        }
+        path {
+            stroke: #FAA1A1;
+        }
+    }
  }
 .categiries__card__start-block {
     display: flex;
@@ -309,7 +323,9 @@ html,body {
     margin-left: auto;
     align-items: center;
  }
-.categories__card__img { }
+.categories__card__img {
+    transition: all 500ms;
+ }
 .categories__card__text {
     font-weight: 500;
     font-size: 20px;
@@ -320,6 +336,13 @@ html,body {
     padding-top: 90px;
     align-items: end;
     display: flex;
+    svg {
+        min-width: 97px;
+        path {
+            transition: all 500ms;
+        }
+        
+    }
  }
 .categories__card__title {
     font-weight: 500;
@@ -385,6 +408,7 @@ html,body {
     border-radius: 40px;
     margin-right: auto;
     width: 48.6%;
+    cursor: pointer;
     &:nth-child(even){
         margin-right: 0;
         margin-left: auto;

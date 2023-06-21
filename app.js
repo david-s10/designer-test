@@ -1,7 +1,8 @@
 const links = document.querySelectorAll('.nav__link')
 const cards = document.querySelectorAll('.how__card')
-const dino = document.querySelector('.categories__dino')
 const boardForCursor = document.querySelector('.categories__section')
+const dino = document.querySelector('.categories__dino')
+const girl = document.querySelector('.start__img')
 
 // function animCursor(e){
 //     const cursor = this.querySelector('.categories__cursor')
@@ -14,14 +15,23 @@ const boardForCursor = document.querySelector('.categories__section')
 
 // }
 
+const girlAnim = (e) => {
+    animObj(girl, e)
+}
+
 const dinoAnimate = (e) => {
-    const ract = dino.getBoundingClientRect()
+    animObj(dino, e)
+}
+
+const animObj = (obj, e) => {
+    // const obj = document.querySelector(classObj)
+    const ract = obj.getBoundingClientRect()
     const x = e.clientX - (ract.left + Math.floor(ract.width / 2))
     const y = e.clientY - (ract.top + Math.floor(ract.height / 2))
-    dino.style.transform = `translate(${x}px, ${y}px)`
+    obj.style.transform = `translate(${x}px, ${y}px)`
 }
-const dinoOnMouseLeave = () => {
-    dino.removeAttribute('style')
+const objMouseLeave = (obj) => {
+    obj.removeAttribute('style')
 }
 
 const linksClass = (e) => {
@@ -34,18 +44,23 @@ const linksClass = (e) => {
 const cardHeightAnim = function() {
     const textContainer = this.querySelector('.how__card-text')
     const arrow = this.querySelector('.how__card-btn')
+    const contur = arrow.querySelector('path')
     if(textContainer.style.height){
         textContainer.removeAttribute('style')
         arrow.removeAttribute('style')
+        contur.removeAttribute('style')
     }else{
         textContainer.style.height = textContainer.scrollHeight + 'px'
         arrow.style.transform = 'rotate(30deg)'
+        contur.style.stroke = '#FAA1A1'
     }
 }
 
 // boardForCursor.addEventListener('mousemove', animCursor)
+girl.addEventListener('mousemove', girlAnim)
+girl.addEventListener('mouseleave', () => objMouseLeave(girl))
 dino.addEventListener('mousemove', dinoAnimate)
-dino.addEventListener('mouseleave', dinoOnMouseLeave)
+dino.addEventListener('mouseleave', () => objMouseLeave(dino))
 links.forEach(el => el.addEventListener('click', linksClass))
 cards.forEach(el => el.addEventListener('click', cardHeightAnim))
 

@@ -86,6 +86,7 @@ html, body {
   transition: background 500ms;
 }
 .nav__link span {
+  pointer-events: none;
   color: transparent;
 }
 .nav__link.active {
@@ -138,6 +139,7 @@ html, body {
   right: 170px;
   max-width: 25%;
   position: absolute;
+  transition: all 500ms;
 }
 
 .start__title {
@@ -210,17 +212,15 @@ html, body {
 .start__form__btn:hover span {
   color: #FAA1A1;
 }
+.start__form__btn:hover path {
+  stroke: #FAA1A1;
+}
 
 .categories__section {
   position: relative;
   background: #000000;
   border-radius: 40px 40px 0px 0px;
   color: #F9F6F6;
-}
-
-.categories__dino {
-  position: absolute;
-  transition: all 500ms;
 }
 
 .categories__cursor {
@@ -244,13 +244,19 @@ html, body {
   right: 174px;
   position: absolute;
   width: 11.517%;
+  transition: all 500ms;
 }
 .categories__image::after {
   position: absolute;
   width: 50%;
-  top: 30%;
+  top: 60px;
   left: -100px;
   content: "MOTHER OF DESIGNS";
+}
+
+.categories__dino {
+  position: absolute;
+  transition: all 500ms;
 }
 
 .categories__title {
@@ -286,12 +292,22 @@ html, body {
   border: 12px solid #000000;
   border-radius: 50%;
 }
+.categories__card:hover .categories__card__img {
+  transform: scale(1.05);
+}
+.categories__card:hover path {
+  stroke: #FAA1A1;
+}
 
 .categiries__card__start-block {
   display: flex;
   flex-direction: column;
   margin-left: auto;
   align-items: center;
+}
+
+.categories__card__img {
+  transition: all 500ms;
 }
 
 .categories__card__text {
@@ -305,6 +321,12 @@ html, body {
   padding-top: 90px;
   align-items: end;
   display: flex;
+}
+.categories__card__end-block svg {
+  min-width: 97px;
+}
+.categories__card__end-block svg path {
+  transition: all 500ms;
 }
 
 .categories__card__title {
@@ -369,6 +391,7 @@ html, body {
   border-radius: 40px;
   margin-right: auto;
   width: 48.6%;
+  cursor: pointer;
 }
 .how__card:nth-child(even) {
   margin-right: 0;
